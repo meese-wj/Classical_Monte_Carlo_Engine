@@ -1,13 +1,13 @@
 # Classical Monte Carlo Engine
 ### W. Joe Meese
 
-A general purpose Monte Carlo simulation engine for studies of canonical statistical mechanics. The algorithm assumes one is working with thermal ensembles where the transition probabilities are temperature-dependent, such as Metropolis-Hastings, Wolff, parallel-tempering algorithms, _etc_.
+A general purpose Monte Carlo simulation engine for studies of canonical statistical mechanics. The algorithm assumes one is working with thermal ensembles where the transition probabilities are temperature-dependent, such as [Metropolis-Hastings](https://www.wikiwand.com/en/Metropolis%E2%80%93Hastings_algorithm), [Wolff](https://www.wikiwand.com/en/Wolff_algorithm), [parallel-tempering algorithms](https://www.wikiwand.com/en/Parallel_tempering), _etc_.
 
 ## Why this Repo?
 
 Aren't there plenty of Monte Carlo libraries? Yes and no. There are plenty of deluxe Monte Carlo simulation that have been written by really great people. These are usually written so that others can really make great strides in computational science. 
 
-However, there are fewer examples of scalable code for students first starting out in computational physics. There are plenty of examples of the 2D Ising model, for example, but these codes usually are written _exclusively_ for the 2D Ising model, and therefore they don't transfer well once a student gets out of the introductory phase. In other words, the available introductory examples typically do not provide a framework for someone to expand their own tested Monte Carlo code to new projects outside of the tutorial level. This is problematic because then there is plenty of copied or rewritten code and projects that are ultimately difficult to build upon or reproduce.
+However, there are fewer examples of scalable code for students first starting out in computational physics. There are plenty of examples of the 2D [Ising model](https://www.wikiwand.com/en/Ising_model), for example, but these codes usually are written _exclusively_ for the 2D Ising model, and therefore they don't transfer well once a student gets out of the introductory phase. In other words, the available introductory examples typically do not provide a framework for someone to expand their own tested Monte Carlo code to new projects outside of the tutorial level. This is problematic because then there is plenty of copied or rewritten code and projects that are ultimately difficult to build upon or reproduce.
 
 This repository is meant to be more pedagogical than production-level. My goal is to write a powerful and generalizable Monte Carlo code using intelligible ```C++```. I will personally use this repo to test my own new ideas and new models, but I will try to maintain it in a way that it remains true to its primary purpose: to be scaffolding for any new computational scientists trying to write their own long-term projects.
 
