@@ -43,4 +43,4 @@ Now you should have a minimal example code built with all the default settings s
 /* intentionally empty */
 ```
 
-( I need some code first :stuck-out-tongue: )
+( I need some code first :grin: ) 
