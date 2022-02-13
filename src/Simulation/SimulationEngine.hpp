@@ -22,10 +22,13 @@ public:
     void measure();
     void analyze_statistics();
     void record_data();
+
+private:
+    Hamiltonian_t _simulation_model;
 };
 
 template<class Hamiltonian_t>
-SimulationEngine<Hamiltonian_t>::SimulationEngine()
+SimulationEngine<Hamiltonian_t>::SimulationEngine() : _simulation_model()
 {
     /* intentionally empty */
 }
