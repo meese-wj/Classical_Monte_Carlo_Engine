@@ -1,11 +1,14 @@
+# Add a parameter directory to store the relevant 
+# compile-time parameters. These will be the defaults
+# for each model, and can be modified and recompiled 
+# from this directory to protect the src.
+set(SimParamDir ${CMAKE_BINARY_DIR}/Simulation_Parameters)
+file(MAKE_DIRECTORY ${SimParamDir})
+message(STATUS "Find compile-time parameters in ${SimParamDir}")
 
 # This will use keep track of a list of targets for the
 # main executable.
 set(targets_for_executable_linking "")
-
-# This will collect all of the parameter files and then
-# put them in the build folder.
-set(parameter_files "")
 
 add_subdirectory(Global_Settings)
 
