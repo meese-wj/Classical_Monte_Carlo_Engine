@@ -14,25 +14,25 @@
 #endif // __has_include(<ising_model_parameters.hpp>)
 
 #include <array>
-#include <cstdint>
+#include <global_simulation_typedefs.hpp>
 
-template<typename energy_t, std::uint32_t Nspins>
-class Ising_Model : public Hamiltonian<energy_t>
+template<CMCE::size_type Nspins>
+class Ising_Model : public Hamiltonian<CMCE::energy_type>
 {
 public:
     const char model_name [] = "Ising_Model";
 
-    Hamiltonian(){};
-    virtual void initialize();
-    virtual energy_t get_energy();
-    virtual change_state( const energy_t probability );
-    virtual void measure_observables();
-    virtual ~Hamiltonian(){};
+    Hamiltonian() override {};
+    virtual void initialize() override;
+    virtual CMCE::energy_type get_energy() override;
+    virtual change_state( const CMCE::energy_type probability ) override;
+    virtual void measure_observables() override;
+    virtual ~Hamiltonian() override {};
 
-    std::uint32_t get_size() const { return Nspins; }
+    CMCE::size_type get_size() const { return Nspins; }
 
 private:
-    std::array<energy_t, Nspins> _spins;
+    std::array<CMCE::energy_type, Nspins> _spins;
 };
 
 #endif

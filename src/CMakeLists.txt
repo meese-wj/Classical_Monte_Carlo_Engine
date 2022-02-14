@@ -10,7 +10,8 @@ message(STATUS "Find compile-time parameters in ${SimParamDir}")
 # main executable.
 set(targets_for_executable_linking "")
 
-add_subdirectory(Global_Settings)
+# Include all files in the Global settings for everyone
+include_directories(Global_Settings)
 
 add_subdirectory(Hamiltonians)
 
