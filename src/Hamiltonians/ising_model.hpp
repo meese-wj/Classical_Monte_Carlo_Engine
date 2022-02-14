@@ -1,6 +1,8 @@
 #ifndef _ISING_MODEL_H
 #define _ISING_MODEL_H
 
+#include "hamiltonian_base.hpp"  // Template base class for the Hamiltonians
+
 // Use the parameter file in this folder by default.
 // But the CMake build system copies this into the 
 // build directory ("Simulation_Parameters") which 

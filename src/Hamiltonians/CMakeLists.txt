@@ -1,5 +1,6 @@
 add_library(Hamiltonians
-            ising_model.hpp)
+            ising_model.hpp
+            hamiltonian_base.hpp)
 
 set_target_properties(Hamiltonians PROPERTIES LINKER_LANGUAGE CXX)
 
