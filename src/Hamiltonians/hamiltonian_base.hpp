@@ -6,7 +6,7 @@ template<typename energy_t>
 class Hamiltonian
 {
 public:
-    const char model_name [];
+    const char hamiltonian_name [];
 
     Hamiltonian();
     virtual void initialize() = 0;

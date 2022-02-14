@@ -17,10 +17,10 @@
 #include <global_simulation_typedefs.hpp>
 
 template<CMCE::size_type Nspins>
-class Ising_Model : public Hamiltonian<CMCE::energy_type>
+class Ising_Hamiltonian : public Hamiltonian<CMCE::energy_type>
 {
 public:
-    const char model_name [] = "Ising_Model";
+    const char hamiltonian_name [] = "Ising";
 
     Hamiltonian() override {};
     virtual void initialize() override;
