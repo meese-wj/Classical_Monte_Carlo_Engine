@@ -16,23 +16,25 @@
 #include <array>
 #include <global_simulation_typedefs.hpp>
 
-template<CMCE::size_type Nspins>
 class Ising_Hamiltonian : public Hamiltonian<CMCE::energy_type>
 {
 public:
     const char hamiltonian_name [] = "Ising";
 
-    Hamiltonian() override {};
+    Ising_Hamiltonian() {};
     virtual void initialize() override;
     virtual CMCE::energy_type get_energy() override;
     virtual change_state( const CMCE::energy_type probability ) override;
     virtual void measure_observables() override;
-    virtual ~Hamiltonian() override {};
+    virtual ~Ising_Hamiltonian() {};
 
-    CMCE::size_type get_size() const { return Nspins; }
+    CMCE::size_type get_size() const { return Ising_Parameters::Nspins; }
+
+protected:
+    void allocate_spins();
 
 private:
-    std::array<CMCE::energy_type, Nspins> _spins;
+    std::array<CMCE::energy_type, Ising_Parameters::Nspins> _spins;
 };
 
 #endif
