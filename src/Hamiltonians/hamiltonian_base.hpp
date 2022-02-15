@@ -2,11 +2,13 @@
 #define _HAMILTONIAN_BASE_H
 // Abstract base class for the Hamiltonians
 
+#include <string>
+
 template<typename energy_t>
 class Hamiltonian
 {
 public:
-    const char hamiltonian_name [];
+    const std::string hamiltonian_name;
 
     Hamiltonian();
     virtual void initialize() = 0;

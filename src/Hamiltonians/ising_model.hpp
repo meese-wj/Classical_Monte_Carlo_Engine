@@ -19,12 +19,12 @@
 class Ising_Hamiltonian : public Hamiltonian<CMCE::energy_type>
 {
 public:
-    const char hamiltonian_name [] = "Ising";
+    const std::string hamiltonian_name = "Ising";
 
     Ising_Hamiltonian() {};
     virtual void initialize() override;
     virtual CMCE::energy_type get_energy() override;
-    virtual change_state( const CMCE::energy_type probability ) override;
+    virtual void change_state( const CMCE::energy_type probability ) override;
     virtual void measure_observables() override;
     virtual ~Ising_Hamiltonian() {};
 
