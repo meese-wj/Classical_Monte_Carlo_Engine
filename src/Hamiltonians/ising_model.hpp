@@ -29,9 +29,19 @@ public:
     virtual ~Ising_Hamiltonian() {};
 
     CMCE::size_type get_size() const { return Ising_Parameters::Nspins; }
+    CMCE::energy_type get_spin( const CMCE::size_type site ) const { return _spins[site]; }
+    void set_spin( const CMCE::size_type site, const CMCE::energy_type value ){ _spins[site] = value; }
 
 protected:
     void allocate_spins();
+    virtual CMCE::energy_type pure_interaction_per_spin( const std::array<CMCE::size_type, Ising_Parameters::Nneighbors> & neighbors ) const;
+    virtual CMCE::energy_type external_field() const;
+    virtual CMCE::energy_type effective_field ( const std::array<CMCE::size_type, Ising_Parameters::Nneighbors> & neighbors ) const;
+    virtual CMCE::energy_type energy_per_spin ( const CMCE::size_type site, 
+                                                const std::array<CMCE::size_type, Ising_Parameters::Nneighbors> & neighbors ) const ;
+    
+    // TODO: Encapsulate the neighbor calculation in something else
+    virtual CMCE::energy_type total_energy    ( void (*evaluate_neighbors)( const CMCE::size_type, std::array<CMCE::size_type, Ising_Parameters::Nneighbors> &) ) const;
 
 private:
     std::array<CMCE::energy_type, Ising_Parameters::Nspins> _spins;

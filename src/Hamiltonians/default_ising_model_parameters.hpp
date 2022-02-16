@@ -12,6 +12,7 @@ namespace Ising_Parameters
     constexpr CMCE::size_type Lx = 8;
     constexpr CMCE::size_type Ly = Lx;
     constexpr CMCE::size_type Nspins = Lx * Ly;
+    constexpr CMCE::size_type Nneighbors = 4;
 
     // Energy scales of the model
     constexpr CMCE::energy_type Jexchange = -1.0;            // Jexchange < 0 is ferromagnetic

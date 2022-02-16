@@ -1,4 +1,5 @@
 add_library(Hamiltonians
+            ising_model.cpp
             ising_model.hpp
             hamiltonian_base.hpp)
 
