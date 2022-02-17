@@ -19,14 +19,17 @@ public:
     virtual ~Square_2D_PBC_Address_Book_Functor(){}
 
 protected: 
-    CMCE::size_type neighbor_0( const CMCE::size_type site ) const;
-    CMCE::size_type neighbor_1( const CMCE::size_type site ) const;
-    CMCE::size_type neighbor_2( const CMCE::size_type site ) const;
-    CMCE::size_type neighbor_3( const CMCE::size_type site ) const;
+    static CMCE::size_type neighbor_0( const CMCE::size_type site );
+    static CMCE::size_type neighbor_1( const CMCE::size_type site );
+    static CMCE::size_type neighbor_2( const CMCE::size_type site );
+    static CMCE::size_type neighbor_3( const CMCE::size_type site );
 
 private:
-    std::array<(*const CMCE::size_type), SQUARE_2D_NUM_NEAREST_NEIGHBORS> _neighbor_functions { &( this -> neighbor_0 ), &( this -> neighbor_1 ),
-                                                                                                &( this -> neighbor_2 ), &( this -> neighbor_3 ) };
+    // Store an array of function pointers that will iterate
+    // over the nearest neighbors
+    std::array<CMCE::size_type (Square_2D_PBC_Address_Book_Functor::*) (const CMCE::size_type),
+               SQUARE_2D_NUM_NEAREST_NEIGHBORS> _neighbor_functions { &( this -> neighbor_0 ), &( this -> neighbor_1 ),
+                                                                      &( this -> neighbor_2 ), &( this -> neighbor_3 ) };
 };
 
 template<CMCE::size_type Lx, CMCE::size_type Ly>
@@ -37,7 +40,7 @@ CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor( const CMCE
 
 
 template<CMCE::size_type Lx, CMCE::size_type Ly>
-CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_0( const CMCE::size_type site ) const
+CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_0( const CMCE::size_type site )
 {
     // (x, y - 1)
     CMCE::size_type xdx = site_x_index<Lx>(site);
@@ -46,7 +49,7 @@ CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_0( const CM
 }
 
 template<CMCE::size_type Lx, CMCE::size_type Ly>
-CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_1( const CMCE::size_type site ) const
+CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_1( const CMCE::size_type site )
 {
     // (x - 1, y)
     CMCE::size_type xdx = site_x_index<Lx>(site);
@@ -55,7 +58,7 @@ CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_1( const CM
 }
 
 template<CMCE::size_type Lx, CMCE::size_type Ly>
-CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_2( const CMCE::size_type site ) const
+CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_2( const CMCE::size_type site )
 {
     // (x + 1, y)
     CMCE::size_type xdx = site_x_index<Lx>(site);
@@ -64,7 +67,7 @@ CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_2( const CM
 }
 
 template<CMCE::size_type Lx, CMCE::size_type Ly>
-CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_3( const CMCE::size_type site ) const
+CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_3( const CMCE::size_type site )
 {
     // (x, y + 1)
     CMCE::size_type xdx = site_x_index<Lx>(site);
