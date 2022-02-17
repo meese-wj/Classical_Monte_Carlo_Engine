@@ -1,6 +1,6 @@
 // Implementation of the Ising Hamiltonian
 
-#include "ising_model.hpp"
+#include "ising_hamiltonian.hpp"
 
 
 // Public member functions:

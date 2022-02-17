@@ -1,5 +1,3 @@
-add_subdirectory(CMake_Macros)
-
 # Add a parameter directory to store the relevant 
 # compile-time parameters. These will be the defaults
 # for each model, and can be modified and recompiled 
@@ -15,8 +13,11 @@ set(targets_for_executable_linking "")
 # Include all files in the Global settings for everyone
 include_directories(Global_Settings)
 
+add_subdirectory(Address_Books)
+
 add_subdirectory(Hamiltonians)
 
 add_subdirectory(Simulation)
 
+list(REMOVE_DUPLICATES targets_for_executable_linking)
 target_link_libraries(${PROJECT_NAME} ${targets_for_executable_linking})
