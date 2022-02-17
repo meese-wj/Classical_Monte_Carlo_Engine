@@ -13,8 +13,3 @@ target_link_libraries("${LibName}" "${ham_targets}")
 # (i.e. dependencies come last).
 list(APPEND targets_for_executable_linking "${LibName}")
 set(targets_for_executable_linking "${targets_for_executable_linking}" PARENT_SCOPE)
-
-# Link the SimParamDir folder with the Hamiltonian target to 
-# make sure that everything is recompiled if the user changes
-# any compile-time settings.
-target_link_directories("${LibName}" PRIVATE ${SimParamDir})

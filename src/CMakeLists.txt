@@ -13,9 +13,9 @@ set(targets_for_executable_linking "")
 # Include all files in the Global settings for everyone
 include_directories(Global_Settings)
 
-add_subdirectory(Address_Books)
-
 add_subdirectory(Hamiltonians)
+
+add_subdirectory(Address_Books)
 
 add_subdirectory(Simulation)
 

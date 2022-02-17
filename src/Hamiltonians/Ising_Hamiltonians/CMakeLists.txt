@@ -9,3 +9,8 @@ set(ham_targets "${ham_targets}" PARENT_SCOPE)
 if (ISING_MODEL)
     configure_file(default_ising_hamiltonian_parameters.hpp ${SimParamDir}/ising_hamiltonian_parameters.hpp)
 endif()
+
+# Link the SimParamDir folder with the Hamiltonian target to 
+# make sure that everything is recompiled if the user changes
+# any compile-time settings.
+target_link_directories("${LibName}" PRIVATE ${SimParamDir})
