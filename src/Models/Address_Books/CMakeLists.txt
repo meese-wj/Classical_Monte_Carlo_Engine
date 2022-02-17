@@ -5,7 +5,8 @@ add_subdirectory(Lattice_Utilities)
 set(LibName "AddressBooks")
 
 add_library("${LibName}"
-            address_books.cpp)
+            address_books.cpp
+            rect_2d_pbc_address_book.hpp)
 
 list(REMOVE_DUPLICATES "${address_book_targets}")
 target_link_libraries("${LibName}" "${address_book_targets}")

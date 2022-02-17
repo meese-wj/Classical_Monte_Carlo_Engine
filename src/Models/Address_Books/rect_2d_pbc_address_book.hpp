@@ -1,22 +1,22 @@
-#ifndef _SQUARE_2D_PBC_ADDRESS_BOOK_H
-#define _SQUARE_2D_PBC_ADDRESS_BOOK_H
+#ifndef _RECT_2D_PBC_ADDRESS_BOOK_H
+#define _RECT_2D_PBC_ADDRESS_BOOK_H
 
 #include "address_book_base.hpp"  // global typedefs are taken from this header
 #include <global_macros.hpp>      // For the branchless ternary
-#include "Lattice_Utilities/square_2d_pbc_functions.hpp"
+#include "Lattice_Utilities/rect_2d_pbc_functions.hpp"
 #include <array>
 
-#define SQUARE_2D_NUM_NEAREST_NEIGHBORS 4
+#define RECT_2D_NUM_NEAREST_NEIGHBORS 4
 
 template<CMCE::size_type Lx, CMCE::size_type Ly=Lx>
-class Square_2D_PBC_Address_Book_Functor : public Address_Book
+class Rect_2D_PBC_Address_Book_Functor : public Address_Book
 {
 public:
-    Square_2D_PBC_Address_Book_Functor(){}
+    Rect_2D_PBC_Address_Book_Functor(){}
 
     CMCE::size_type neighbor( const CMCE::size_type site, const CMCE::size_type which_neighbor  ) override;
 
-    virtual ~Square_2D_PBC_Address_Book_Functor(){}
+    virtual ~Rect_2D_PBC_Address_Book_Functor(){}
 
 protected: 
     static CMCE::size_type neighbor_0( const CMCE::size_type site );
@@ -27,20 +27,20 @@ protected:
 private:
     // Store an array of function pointers that will iterate
     // over the nearest neighbors
-    std::array<CMCE::size_type (Square_2D_PBC_Address_Book_Functor::*) (const CMCE::size_type),
-               SQUARE_2D_NUM_NEAREST_NEIGHBORS> _neighbor_functions { &( this -> neighbor_0 ), &( this -> neighbor_1 ),
+    std::array<CMCE::size_type (Rect_2D_PBC_Address_Book_Functor::*) (const CMCE::size_type),
+               RECT_2D_NUM_NEAREST_NEIGHBORS> _neighbor_functions { &( this -> neighbor_0 ), &( this -> neighbor_1 ),
                                                                       &( this -> neighbor_2 ), &( this -> neighbor_3 ) };
 };
 
 template<CMCE::size_type Lx, CMCE::size_type Ly>
-CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor( const CMCE::size_type site, const CMCE::size_type which_neighbor )
+CMCE::size_type Rect_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor( const CMCE::size_type site, const CMCE::size_type which_neighbor )
 {
     return _neighbor_functions[which_neighbor](site);
 }
 
 
 template<CMCE::size_type Lx, CMCE::size_type Ly>
-CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_0( const CMCE::size_type site )
+CMCE::size_type Rect_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_0( const CMCE::size_type site )
 {
     // (x, y - 1)
     CMCE::size_type xdx = site_x_index<Lx>(site);
@@ -49,7 +49,7 @@ CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_0( const CM
 }
 
 template<CMCE::size_type Lx, CMCE::size_type Ly>
-CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_1( const CMCE::size_type site )
+CMCE::size_type Rect_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_1( const CMCE::size_type site )
 {
     // (x - 1, y)
     CMCE::size_type xdx = site_x_index<Lx>(site);
@@ -58,7 +58,7 @@ CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_1( const CM
 }
 
 template<CMCE::size_type Lx, CMCE::size_type Ly>
-CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_2( const CMCE::size_type site )
+CMCE::size_type Rect_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_2( const CMCE::size_type site )
 {
     // (x + 1, y)
     CMCE::size_type xdx = site_x_index<Lx>(site);
@@ -67,7 +67,7 @@ CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_2( const CM
 }
 
 template<CMCE::size_type Lx, CMCE::size_type Ly>
-CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_3( const CMCE::size_type site )
+CMCE::size_type Rect_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_3( const CMCE::size_type site )
 {
     // (x, y + 1)
     CMCE::size_type xdx = site_x_index<Lx>(site);
@@ -75,5 +75,5 @@ CMCE::size_type Square_2D_PBC_Address_Book_Functor<Lx, Ly>::neighbor_3( const CM
     return site_index<Lx>( xdx, BRANCHLESS_TERNARY( ydx == Ly - 1, 0, ydx + 1 ) );
 }
 
-#undef SQUARE_2D_NUM_NEAREST_NEIGHBORS 
-#endif // _SQUARE_2D_PBC_ADDRESS_BOOK_H
+#undef RECT_2D_NUM_NEAREST_NEIGHBORS 
+#endif // _RECT_2D_PBC_ADDRESS_BOOK_H

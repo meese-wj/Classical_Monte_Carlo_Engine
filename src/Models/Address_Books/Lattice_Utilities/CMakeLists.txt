@@ -1,7 +1,7 @@
 set(LibName "Lattice_Utilities")
 
 add_library("${LibName}"
-            square_2d_pbc_functions.hpp)
+            rect_2d_pbc_functions.hpp)
 
 set_target_properties("${LibName}" PROPERTIES LINKER_LANGUAGE CXX )
 

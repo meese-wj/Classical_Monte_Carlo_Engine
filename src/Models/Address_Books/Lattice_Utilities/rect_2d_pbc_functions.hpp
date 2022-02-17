@@ -1,5 +1,5 @@
-#ifndef _SQUARE_2D_PBC_FUNCTIONS_H
-#define _SQUARE_2D_PBC_FUNCTIONS_H
+#ifndef _RECT_2D_PBC_FUNCTIONS_H
+#define _RECT_2D_PBC_FUNCTIONS_H
 
 #include <global_simulation_typedefs.hpp>
 
@@ -46,4 +46,4 @@ constexpr CMCE::size_type site_y_index( const CMCE::size_type site, const CMCE::
 #undef index_to_x
 #undef index_to_y
 
-#endif // _SQUARE_2D_PBC_FUNCTIONS_H
+#endif // _RECT_2D_PBC_FUNCTIONS_H
