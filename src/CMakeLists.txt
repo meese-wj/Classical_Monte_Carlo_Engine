@@ -1,3 +1,5 @@
+add_subdirectory(CMake_Macros)
+
 # Add a parameter directory to store the relevant 
 # compile-time parameters. These will be the defaults
 # for each model, and can be modified and recompiled 

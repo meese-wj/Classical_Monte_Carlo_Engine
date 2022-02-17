@@ -8,10 +8,11 @@ set_target_properties(Hamiltonians PROPERTIES LINKER_LANGUAGE CXX)
 # Append the library to the targets to link. This assumes that
 # the subdirectory targets have been included in the right order
 # (i.e. dependencies come last).
-if ( NOT( "Hamiltonians" IN_LIST "${targets_for_executable_linking}" ) )
-    list(APPEND targets_for_executable_linking "Hamiltonians")
-    set(targets_for_executable_linking ${targets_for_executable_linking} PARENT_SCOPE)
-endif()
+# if ( NOT( "Hamiltonians" IN_LIST "${targets_for_executable_linking}" ) )
+#     list(APPEND targets_for_executable_linking "Hamiltonians")
+#     set(targets_for_executable_linking ${targets_for_executable_linking} PARENT_SCOPE)
+# endif()
+Smart_List_Append( "${targets_for_executable_linking}" Hamiltonians )
 
 # Send the proper Hamiltonian file to the SimParamDir
 if (ISING_MODEL)
