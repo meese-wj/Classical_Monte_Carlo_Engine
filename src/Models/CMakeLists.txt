@@ -1,7 +1,9 @@
 set(LibName "Models")
 set(model_targets "")
 
-add_library("${LibName}" cmce_model_base.hpp)
+add_library("${LibName}" 
+            ising_model.cpp
+            cmce_model_base.hpp)
 
 set_target_properties("${LibName}" PROPERTIES LINKER_LANGUAGE CXX)
 

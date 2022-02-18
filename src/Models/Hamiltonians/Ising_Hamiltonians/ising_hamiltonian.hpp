@@ -1,5 +1,5 @@
-#ifndef _ISING_MODEL_H
-#define _ISING_MODEL_H
+#ifndef _ISING_HAMILTONIAN_H
+#define _ISING_HAMILTONIAN_H
 
 #include "../hamiltonian_base.hpp"  // Template base class for the Hamiltonians
 
@@ -47,4 +47,4 @@ private:
     std::array<CMCE::energy_type, Ising_Parameters::Nspins> _spins;
 };
 
-#endif
+#endif // _ISING_HAMILTONIAN_H

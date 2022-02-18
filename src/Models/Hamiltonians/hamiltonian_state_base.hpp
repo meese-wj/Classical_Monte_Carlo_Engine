@@ -9,8 +9,8 @@ class Hamiltonian_State
 public:
     Hamiltonian_State();
 
-    virtual get_energy() = 0;
-    virtual update_state( const Hamiltonian_State<energy_t> & _temp_state ) = 0;
+    virtual energy_t get_energy() = 0;
+    virtual void update_state( const Hamiltonian_State<energy_t> & _temp_state ) = 0;
 
     virtual ~Hamiltonian_State();
 };

@@ -32,11 +32,11 @@ namespace CMCE
 
         virtual ~Model_Base(){}
 
-    private:
-        // These private members must be contained in every
+    protected:
+        // These protected members must be contained in every
         // Hamiltonian:
         /* 
-            Hamiltonian<State<energy_type>  hamiltonian_state;
+            Hamiltonian_State<energy_type>  hamiltonian_state;
             Hamiltonian<energy_type>        model_hamiltonian;
             Address_Book                    DoF_contacts;
             Observables<energy_t>           model_observables;
