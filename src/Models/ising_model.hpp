@@ -41,7 +41,7 @@ public:
 
     virtual void initialize() override;
     virtual void determine_state() override;
-    virtual CMCE::energy_type get_energy() const { return _hamiltonian_state.get_energy(); } 
+    virtual CMCE::energy_type get_energy() override { return _hamiltonian_state.get_energy(); } 
     virtual void measure_observables() override;
     virtual void export_observables() override;
 

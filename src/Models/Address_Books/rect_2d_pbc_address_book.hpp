@@ -1,8 +1,8 @@
 #ifndef _RECT_2D_PBC_ADDRESS_BOOK_H
 #define _RECT_2D_PBC_ADDRESS_BOOK_H
 
-#include "address_book_base.hpp"  // global typedefs are taken from this header
-#include <global_macros.hpp>      // For the branchless ternary
+#include "address_book_base.hpp"                        // global typedefs are taken from this header
+#include "../../Global_Settings/global_macros.hpp"      // For the branchless ternary
 #include "Lattice_Utilities/rect_2d_pbc_functions.hpp"
 #include <array>
 
@@ -27,7 +27,7 @@ protected:
 private:
     // Store an array of function pointers that will iterate
     // over the nearest neighbors
-    std::array<CMCE::size_type (Rect_2D_PBC_Address_Book_Functor::*) (const CMCE::size_type),
+    std::array<CMCE::size_type (*) (const CMCE::size_type),
                RECT_2D_NUM_NEAREST_NEIGHBORS> _neighbor_functions { &( this -> neighbor_0 ), &( this -> neighbor_1 ),
                                                                       &( this -> neighbor_2 ), &( this -> neighbor_3 ) };
 };

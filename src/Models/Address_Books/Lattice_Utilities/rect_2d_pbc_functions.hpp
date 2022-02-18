@@ -1,7 +1,7 @@
 #ifndef _RECT_2D_PBC_FUNCTIONS_H
 #define _RECT_2D_PBC_FUNCTIONS_H
 
-#include <global_simulation_typedefs.hpp>
+#include "../../../Global_Settings/global_simulation_typedefs.hpp"
 
 #define xy_to_index( x, y, Lx ) (y * Lx + x)
 #define index_to_x( site, Lx ) (site % Lx)

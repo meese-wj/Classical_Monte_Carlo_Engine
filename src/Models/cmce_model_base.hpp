@@ -23,7 +23,7 @@ namespace CMCE
         
         virtual void initialize() = 0;
         virtual void determine_state() = 0;
-        virtual energy_type get_energy() const = 0;
+        virtual energy_type get_energy() = 0;
         virtual void measure_observables() = 0;
         virtual void export_observables() = 0;
 
