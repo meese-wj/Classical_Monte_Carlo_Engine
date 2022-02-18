@@ -4,7 +4,7 @@
 // control geometrical functions related to connecting
 // the degrees of freedom.
 
-#include <global_simulation_typedefs.hpp>
+#include "../../Global_Settings/global_simulation_typedefs.hpp"
 
 class Address_Book
 {

@@ -8,9 +8,10 @@
 // It will also contain the state adn observables 
 // when I get around to making them.
 
-#include <global_simulation_typedefs.hpp>
-#include "Address_Books/address_book_base.hpp"
+#include "../Global_Settings/global_simulation_typedefs.hpp"
+#include "Hamiltonians/hamiltonian_state_base.hpp"
 #include "Hamiltonians/hamiltonian_base.hpp"
+#include "Address_Books/address_book_base.hpp"
 
 namespace CMCE
 {
@@ -32,14 +33,14 @@ namespace CMCE
         virtual ~Model_Base(){}
 
     private:
-        // Each Model must have an Address_Book
-        // and a Hamiltonian.
-        // ** Being an abstract class, these are actually
-        //    hidden from derived types, but I'm keeping 
-        //    them here as a template guide. **
-        // TODO: Add STATE and OBSERVABLES
-        Address_Book DoF_contacts;
-        Hamiltonian  model_hamiltonian;
+        // These private members must be contained in every
+        // Hamiltonian:
+        /* 
+            Hamiltonian<State<energy_type>  hamiltonian_state;
+            Hamiltonian<energy_type>        model_hamiltonian;
+            Address_Book                    DoF_contacts;
+            Observables<energy_t>           model_observables;
+        */
     };
 
 
