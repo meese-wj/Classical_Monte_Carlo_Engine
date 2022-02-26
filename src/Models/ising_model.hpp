@@ -16,9 +16,14 @@ class Ising_State : public Hamiltonian_State<CMCE::energy_type>
 {
 public:
     Ising_State(){}
+    Ising_State( CMCE::energy_type en, CMCE::energy_type mag ) : energy(en), total_mag(mag) {}
 
     CMCE::energy_type get_energy() override { return energy; }
-    void update_state( const Ising_State & temp_state ) override { *this = temp_state; }
+    virtual void update_state( const Ising_State & temp_state ) 
+    { 
+        energy = temp_state.energy;
+        total_mag = temp_state.total_mag;
+    }
 
     virtual ~Ising_State() {}
 

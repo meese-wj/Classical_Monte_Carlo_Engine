@@ -54,3 +54,12 @@ CMCE::energy_type Ising_Hamiltonian::total_energy( void (*evaluate_neighbors)( c
     }
     return temp_energy;
 }
+
+CMCE::energy_type Ising_Hamiltonian::get_magnetization() const
+{
+    CMCE::energy_type mag = 0.;
+    for ( const auto & spin : _spins)
+        mag += spin;
+    
+    return mag;
+}

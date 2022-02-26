@@ -24,6 +24,7 @@ public:
     Ising_Hamiltonian() {};
     virtual void initialize() override;
     virtual CMCE::energy_type get_energy() override;
+    CMCE::energy_type get_magnetization() const;
     virtual void change_state( const CMCE::energy_type probability ) override;
     virtual void measure_observables() override;
     virtual ~Ising_Hamiltonian() {};

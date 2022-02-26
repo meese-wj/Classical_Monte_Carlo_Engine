@@ -10,7 +10,6 @@ public:
     Hamiltonian_State();
 
     virtual energy_t get_energy() = 0;
-    void update_state( const Hamiltonian_State<energy_t> & _temp_state );
 
     virtual ~Hamiltonian_State();
 };
